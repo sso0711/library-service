@@ -11,6 +11,53 @@
         <%- include('../components/header') %>
         <main>
             <div class="card mb-3">
+                <h2 class="mb-3">다독왕 Top Borrowers (Last 3 Months)</h2>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Borrow Count</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (topBorrowers && topBorrowers.length) { %>
+                            <% topBorrowers.forEach(u => { %>
+                                <tr>
+                                    <td><%= u.username %></td>
+                                    <td><%= u.borrow_count %></td>
+                                </tr>
+                            <% }); %>
+                        <% } else { %>
+                            <tr><td colspan="2">No data</td></tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card mb-3">
+                <h2 class="mb-3">일 별 평균 대출량 (최근 3개월) - 요일별</h2>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Avg Loans</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (avgLoansByDow && avgLoansByDow.length) { %>
+                            <% avgLoansByDow.forEach(row => { %>
+                                <tr>
+                                    <td><%= row.dow_label %></td>
+                                    <td><%= row.avg_loans %></td>
+                                </tr>
+                            <% }); %>
+                        <% } else { %>
+                            <tr><td colspan="2">No data</td></tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card mb-3">
                 <h2 class="mb-3">Overall Popular Books (Last 3 Months)</h2>
                 <table class="table table-striped">
                     <thead>

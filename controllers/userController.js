@@ -1,29 +1,38 @@
-const db = require('../config/db');
+const db = require("../config/db");
 
 const getUsersPage = async (req, res, next) => {
-    const { searchBy, query } = req.query;
+  const { searchBy, query } = req.query;
 
-    const dummyUsers = [ // 이 변수는 더미데이터입니다. 구현을 다하면 제거해주세요.
-        { id: 1, username: 'admin', role: 'admin' },
-        { id: 2, username: 'user1', role: 'user' },
-        { id: 3, username: 'user2', role: 'user' },
-    ];
-
-    try {
-        /*
+  try {
+    /*
             TODO: 검색어에 맞춰 유저 목록을 출력하는 페이지를 렌더링하는 코드를 작성하세요.
         */
-        res.render('pages/users', {
-            title: 'User Management',
-            users: dummyUsers,
-            searchBy,
-            query
-        });
-    } catch (err) {
-        next(err);
+    let sql = "SELECT user_id AS id, username, role FROM users";
+    const params = [];
+    if (query) {
+      if (searchBy === "role") {
+        params.push(`%${query}%`);
+        sql += ` WHERE role ILIKE $${params.length}`;
+      } else {
+        // default: username
+        params.push(`%${query}%`);
+        sql += ` WHERE username ILIKE $${params.length}`;
+      }
     }
+    sql += " ORDER BY user_id";
+    const { rows: users } = await db.query(sql, params);
+
+    res.render("pages/users", {
+      title: "User Management",
+      users,
+      searchBy,
+      query,
+    });
+  } catch (err) {
+    next(err);
+  }
 };
 
 module.exports = {
-    getUsersPage
+  getUsersPage,
 };

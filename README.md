@@ -1,4 +1,5 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/1ha9Et_2)
+
 # Assignment 2 - Web Application Development
 
 Database를 사용하여 도서관 관리 Web Application을 개발합니다.
@@ -12,12 +13,14 @@ Database를 사용하여 도서관 관리 Web Application을 개발합니다.
    2. 본인이 직접 개발할 경우 README.md를 제외한 모든 파일을 지운 뒤 깔끔한 환경을 만든 뒤 과제를 진행합니다.
 
 ## 본인의 이름과 학번을 적어주세요
+
 ```
-학번:
-이름:
+학번:2021070173
+이름:박소영
 ```
 
 ## 제출 기한
+
 - <b style='background-color: #ffdce0'>2025년 10월 23일 (목) 23시 59분</b>
 - <b style='background-color: #ffdce0'>기한 이후 제출 시 3시간 마다 전체 득점에서 5%씩 감점합니다.</b>
 - <b>기한 이후에는 push가 불가능 하기 때문에 다음 메일로 폴더 전체를 압축하여 제출하여 주세요.</b>
@@ -32,24 +35,27 @@ Database를 사용하여 도서관 관리 Web Application을 개발합니다.
 1. [Node.js 공식 사이트](https://nodejs.org/)에서 LTS 버전을 다운로드하여 설치합니다.
 
 2. 프로젝트 루트 디렉토리에서 다음 명령어를 실행하여 필요한 패키지를 설치합니다.
-    ```bash
-    npm install
-    ```
+
+   ```bash
+   npm install
+   ```
 
 3. 프로젝트 루트 디렉토리에 `.env` 파일을 생성하고 다음과 같이 데이터베이스 연결 정보를 입력합니다.
-    ```
-    DATABASE_URL="postgresql://{user name}:{password}@{ip address}:{port}/{database name}"
-    ```
+
+   ```
+   DATABASE_URL="postgresql://{user name}:{password}@{ip address}:{port}/{database name}"
+   ```
 
 4. 다음 명령어를 실행하여 데이터베이스 테이블을 생성합니다.
-    ```bash
-    npm run db:init
-    ```
+
+   ```bash
+   npm run db:init
+   ```
 
 5. 다음 명령어로 애플리케이션을 실행합니다.
-    ```bash
-    npm run start
-    ```
+   ```bash
+   npm run start
+   ```
 
 ## 기능 요구 사항
 
@@ -77,7 +83,6 @@ Database를 사용하여 도서관 관리 Web Application을 개발합니다.
 - [ ] 인기 서적 차트는 모든 서적에 대해서도 있고, 카테고리 별 차트도 있다.
 - [ ] 도서관에는 동일한 책이 여러 개 있을 수 있는데, 차트에 집계할 때에는 종합해서 집계한다.
 
-
 ### 대출 및 반납
 
 - [ ] 사용자는 현재 대출 중이 아닌 모든 책을 대출 할 수 있다.
@@ -88,19 +93,18 @@ Database를 사용하여 도서관 관리 Web Application을 개발합니다.
 - [ ] 사용자 별 대출 기록을 확인할 수 있는 페이지가 있다.
 - [ ] 대출 기록에서는 정확히 어떤 책을 대출 했는지(동일한 책 중에서도) 확인할 수 있어야 한다.
 
-
 ### 서적 관리 (관리자 용)
 
 - [ ] 관리자는 서적을 추가 및 제거 할 수 있다.
 - [ ] 관리자는 카테고리를 추가 및 제거할 수 있다.
 - [ ] 책은 동시에 여러 카테고리에 속할 수 있다.
 
-
 ### 회원 관리 (관리자 용)
 
-- [ ] 관리자는 회원  목록을 열람할 수 있다.
+- [ ] 관리자는 회원 목록을 열람할 수 있다.
 
 ### 추가 기능
 
 - [ ] ...
+
 ---
